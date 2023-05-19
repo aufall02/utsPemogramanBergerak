@@ -64,7 +64,7 @@ public class Calculator extends AppCompatActivity {
 
 //              find determinan
                 determinant = countDeterminant(a,b,c);
-                Toast.makeText(this,""+determinant,Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"Determinan : "+determinant,Toast.LENGTH_LONG).show();
 
 //              find root of equations
                 if(determinant == 0){
