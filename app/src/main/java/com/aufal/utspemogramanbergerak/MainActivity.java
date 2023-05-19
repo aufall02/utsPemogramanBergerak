@@ -50,12 +50,17 @@ public class MainActivity extends AppCompatActivity {
        btn_gas.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               if (!isLogin){
-                   Toast.makeText(getBaseContext(), "Masukkan Nama Dan Nim Anda", Toast.LENGTH_LONG).show();
-               }else{
-                   Intent intent = new Intent(MainActivity.this, Calculator.class);
-                   startActivity(intent);
-               }
+              try {
+                  if (!isLogin){
+                      Toast.makeText(getBaseContext(), "Masukkan Nama Dan Nim Anda", Toast.LENGTH_LONG).show();
+                  }else{
+                      System.out.println("test");
+                      Intent intent = new Intent(MainActivity.this, Calculator.class);
+                      startActivity(intent);
+                  }
+              }catch (Exception err){
+                  System.out.println(err);
+              }
            }
        });
 
