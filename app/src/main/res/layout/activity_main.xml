@@ -13,20 +13,30 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-74dp">
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_marginStart="24dp"
+            android:text="Selamat Datang "
+            android:textSize="32dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="100dp"
+                android:layout_width="24dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingStart="14dp"
-                android:text="Nama" />
+                android:text="Nama"
+                android:textSize="16dp" />
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/in_nama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -41,14 +51,15 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="100dp"
+                android:layout_width="24dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingStart="14dp"
-                android:text="Nim" />
+                android:text="Nim"
+                android:textSize="16dp" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/in_Nim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -67,21 +78,21 @@
                 android:orientation="vertical" >
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_simpan"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="SAVE" />
 
                 <EditText
-                    android:id="@+id/editTextTextMultiLine"
+                    android:id="@+id/re_textArea"
                     android:layout_width="match_parent"
                     android:layout_height="536dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
                     android:ems="10"
-                    android:gravity="start|top"
-                    android:hint="ini text area"
-                    android:inputType="textMultiLine" />
+                    android:inputType="textMultiLine"
+                    android:paddingStart="24dp"
+                    android:textSize="32dp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -89,7 +100,7 @@
                     android:paddingEnd="6dp">
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/btn_gas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
