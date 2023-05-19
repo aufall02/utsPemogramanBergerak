@@ -1,17 +1,19 @@
 package com.aufal.utspemogramanbergerak;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Calculator extends AppCompatActivity {
     EditText _a,_b,_c;
     TextView re_x1, re_x2;
     Button btn_hitung;
-    double determinant, a,b,c,x1,x2;
+    double determinant, a,b,c;
 
 
     public int  convertToInteger(EditText a){
@@ -20,10 +22,25 @@ public class Calculator extends AppCompatActivity {
         return result;
     }
 
-    public double countDeterminant(double a,double b,double c){
-        double result;
-        result = Math.pow(b,2)-4*a*c;
-        return result;
+
+    // Determinan = B2-4AC,
+    public double countDeterminant(double a, double b, double c){
+      return  Math.pow(b, 2) - 4 * a * c;
+    }
+
+//    D=0 maka x1 = x2 = - B/2A
+    public void rootOfEquationsIfDet0(TextView x1, TextView x2,double b, double a){
+        x1.setText(String.valueOf((-b / 2) * a));
+        x2.setText(String.valueOf((-b / 2) * a));
+    }
+
+    public void rootOfEquationsIfDetbigger0(TextView x1, TextView x2,double b, double a){
+        x1.setText(String.valueOf((-b+Math.sqrt(determinant))/(2*a)));
+        x2.setText(String.valueOf((-b-Math.sqrt(determinant))/(2*a)));
+    }
+    public void rootOfEquationsIfDetsmaller0(TextView x1, TextView x2){
+        x1.setText("Imajiner");
+        x2.setText("Imajiner");
     }
 
     @Override
@@ -45,24 +62,20 @@ public class Calculator extends AppCompatActivity {
                 b = convertToInteger(_b);
                 c = convertToInteger(_c);
 
-
 //              find determinan
-                countDeterminant(a,b,c);
-
+                determinant = countDeterminant(a,b,c);
+                Toast.makeText(this,""+determinant,Toast.LENGTH_LONG).show();
 
 //              find root of equations
                 if(determinant == 0){
-                    re_x1.setText(String.valueOf((-b / 2) * a));
-                    re_x2.setText(String.valueOf((-b / 2) * a));
-
+                    rootOfEquationsIfDet0(re_x1,re_x2,b,a);
                 }else if (determinant > 0) {
-                    re_x1.setText(String.valueOf((-b+Math.sqrt(determinant))/(2*a)));
-                    re_x2.setText(String.valueOf((-b-Math.sqrt(determinant))/(2*a)));
-                } else{
-                    re_x1.setText("imajiner");
-                    re_x2.setText("imajiner");
+                    rootOfEquationsIfDetbigger0(re_x1,re_x2,b,a);
+                }else{
+                    rootOfEquationsIfDetsmaller0(re_x1,re_x2);
                 }
         });
 
     }
+
 }
